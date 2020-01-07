@@ -1,48 +1,38 @@
-const express = require ('express');
-const MongoClient= require('mongodb').MongoClient;
+const express = require('express');
+const ejs = require('ejs');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const UserDetails = require('./models/userDetails.model');
 
-const url = "mongodb://localhost:27017/mydb1";
+// Establish a database connection
+mongoose.connect('mongodb://localhost/ca');
 
-const server = express();
+//Create server
+let server = express();
 
-server.get('/', (req,res) => {
-    res.sendFile('/home/ajal/Documents/Ajal/mongodb/index.html');
+//Use assets
+server.use("/assets/css", express.static(__dirname + "/assets/css"));
+
+//Setting view engine
+server.set("view engine","ejs");
+
+//Show static page
+server.get('/',(req,res) => {
+        res.render('index');
 });
 
-
-server.route('/view_userDetails').get( (req,res) => {
-    MongoClient.connect(url,(err,db) => {
-        if(err) throw err;
-        const dbo = db.db("mydb1");
-        const collection = dbo.collection("customers");
-        const cursor = collection.find();
-        var data = "";
-        var name = "";
-        var college = "";
-        var sem = "";
-        var phone = "";
-        var email = "";
-        var exp = "";
-        var why = "";
-        var timestamp = ""; 
-        cursor.forEach((doc) => {
-            if (doc != null) {
-                name =  "User Name : "+doc.name+"<br>";
-                college = " College : " +doc.college + " <br>";
-                sem =  "    Semester:  "+ doc.sem+ "</br>";
-                phone = " Phone No : " +doc.phone + " <br>";
-                email = "    Email:  "+ doc.email+ "</br>";
-                exp = " Experience : " +doc.exp + " <br>";
-                why = "    Why :  "+ doc.why+ "</br>";
-                timesamp = " timestamp : " +doc.timestamp + " <br>";
-                data = data +  name + college + sem+phone+email+exp+why+timestamp+"<br>";
-            }
-            },() => {
-                res.send(data);
-                db.close();
+server.get('/view',(req,res) => {  
+    //Get the database
+    let db = mongoose.connection;   
+    db.on('error',console.error.bind(console,"connection error"));
+    db.once('open', () => {
+        console.log("Connection Successful");
+        UserDetails.find((err,docs) => {
+            if(err) return console.error(err);
+            console.log(docs);
         });
-        
     });
+
 });
 
 server.listen(3000);
