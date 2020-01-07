@@ -1,0 +1,27 @@
+.header {
+    background-color: black;
+    color:white;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 20px;
+}
+
+.hl {
+    border-top: 1px dashed white;
+}
+
+.nav {
+    background-color: black;
+    color:white;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.content {
+    background-color: BLACK;
+    padding-bottom: 100px;
+    padding-top: 100px;
+    padding-left: 870px;
+}

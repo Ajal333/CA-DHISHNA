@@ -1,20 +1,21 @@
 {
-  "name": "mongodb",
+  "name": "Ca-Dhishna",
   "version": "1.0.0",
-  "description": "MongoDB README",
-  "main": "main.js",
+  "description": "",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon -r esm app.js"
+    "start":"nodemon -r esm app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ajal",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body": "^5.1.0",
+    "ejs": "^3.0.1",
     "esm": "^3.2.25",
     "express": "^4.17.1",
-    "mongoose": "^5.8.3",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "parser": "^0.1.4"
   }
 }
