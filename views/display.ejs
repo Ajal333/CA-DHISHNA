@@ -9,22 +9,15 @@
         <h1>User Details</h1>
         <br>
         <% for(let i=0;i<data.length;i++){ %>
-            <h3>User </h3> <%= i+1 %>
-            <h4>Name :</h4> <%= data[i].name %>
-            <br>
-            <h4>College :</h4> <%= data[i].college %>
-            <br>
-            <h4>Semester :</h4><%= data[i].sem %>
-            <br>
-            <h4>Phone</h4> <%= data[i].phone %>
-            <br>
-            <h4>Mail :</h4> <%= data[i].email %>
-            <br>
-            <h4>Experience :</h4> <%= data[i].exp %>
-            <br>
-            <h4>Why :</h4> <%= data[i].why %>
-            <br>
-            <h4>Time :</h4> <%= data[i].timestamp %>
+            <h3>User <%- i+1 %>  </h3>
+            <h4>Name : <%- data[i].name %></h4> 
+            <h4>College : <%- data[i].college %></h4>
+            <h4>Semester : <%- data[i].sem %></h4>
+            <h4>Phone : <%- data[i].phone %></h4> 
+            <h4>Mail : <%- data[i].email %></h4> 
+            <h4>Experience : <%- data[i].exp %></h4> 
+            <h4>Why : <%- data[i].why %></h4> 
+            <h4>Time : <%- data[i].timestamp %></h4> 
             <br>
             <% } %>
 
