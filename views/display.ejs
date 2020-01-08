@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Users Data</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+        <h1>User Details</h1>
+        <br>
+        <% for(let i=0;i<data.length;i++){ %>
+            <h3>User </h3> <%= i+1 %>
+            <h4>Name :</h4> <%= data[i].name %>
+            <br>
+            <h4>College :</h4> <%= data[i].college %>
+            <br>
+            <h4>Semester :</h4><%= data[i].sem %>
+            <br>
+            <h4>Phone</h4> <%= data[i].phone %>
+            <br>
+            <h4>Mail :</h4> <%= data[i].email %>
+            <br>
+            <h4>Experience :</h4> <%= data[i].exp %>
+            <br>
+            <h4>Why :</h4> <%= data[i].why %>
+            <br>
+            <h4>Time :</h4> <%= data[i].timestamp %>
+            <br>
+            <% } %>
+
+</body>
